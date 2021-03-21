@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   get 'homes/index'
   devise_for :users
   resources :books
-  resources :users,only:[:edit]
+  resources :users
 end
