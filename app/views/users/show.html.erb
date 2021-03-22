@@ -43,10 +43,12 @@
         <table class="table">
          <tbody>
           <tr>
-           <td></td>
-           <td></td>
+           <% @books.each do |book| %>
+           <td><%= book.title %></td>
+           <td><%= book.body %></td>
            <td><%= link_to"Edit",edit_book_path,class:'btn btn-sm btn-success' %></td>
            <td><%= link_to"Destroy",user_path,method: :delete,class:'btn btn-info btn-sm btn-block mb-3 sign_in' %></td>
+           <% end %>
           </tr>
          </tbody>
         </table>
