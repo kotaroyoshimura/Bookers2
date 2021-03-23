@@ -1,4 +1,4 @@
-<p id="notice"></p>
+<p id="notice"><%=flash[:create_book]%><%=flash[:update_book]%></p>
  <div class="container px-5 px-sm-0">
    <div class="row">
      <div class="col-md-3">
@@ -56,8 +56,10 @@
             <td>
              <%= @book.body %>
             </td>
+           <% if @user.id == current_user.id %>
            <td><%= link_to"Edit",edit_book_path(@book.id),class:'btn btn-sm btn-success' %></td>
-           <td><%= link_to"Destroy",book_path,method: :delete,class:'btn btn-sm btn-danger ' %></td>
+           <td><%= link_to"Destroy",book_path,method: :delete,class:'btn btn-sm btn-danger' %></td>
+           <%end%>
            </tr>
            <%end%>
           </tbody>
