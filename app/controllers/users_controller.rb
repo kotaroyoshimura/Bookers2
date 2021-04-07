@@ -42,6 +42,14 @@ class UsersController < ApplicationController
     book.destroy
     redirect_to books_path
   end
+  
+  def follow
+    @user = User.find(params[:id])
+  end
+  
+  def follower
+    @user = User.find(params[:id])
+  end
 
 
   private

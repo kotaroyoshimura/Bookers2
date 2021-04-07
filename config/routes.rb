@@ -4,10 +4,16 @@ Rails.application.routes.draw do
   post 'unfollow/:id' => 'relationships#unfollow',as: 'unfollow'
   get 'home/about' => 'homes#about'
   get 'homes/index'
+
   devise_for :users
   resources :books do
     resource :favorites, only: [:create, :destroy]
     resources :book_comments, only: [:create,:destroy]
   end
-  resources :users
+  resources :users do
+   member do
+    get 'follow' => 'users#follow'
+    get 'follower' => 'users#follower'
+   end
+ end
 end
