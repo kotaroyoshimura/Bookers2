@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/search' => 'search#search'
   root to:'homes#index'
   post 'follow/:id' => 'relationships#follow',as: 'follow'
   post 'unfollow/:id' => 'relationships#unfollow',as: 'unfollow'
