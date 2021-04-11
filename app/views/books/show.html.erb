@@ -25,9 +25,11 @@
            <td><%= link_to"Edit",edit_book_path(@book.id),class:'btn btn-sm btn-success' %></td>
            <td><%= link_to"Destroy",book_path,method: :delete,class:'btn btn-sm btn-danger' %></td>
            <% end %>
-           <td id="favorites_buttons_<%= @book.id %>">
-            <%= render partial: 'favorites/favorite',locals: {book: @book} %>
+           <% @book.each do |book| %>
+           <td id="favorites_buttons_<%= book.id %>">
+            <%= render partial: 'favorites/favorite',locals: {book: book} %>
            </td>
+           <%end%>
            <td>コメント数： <%= @book.book_comments.count %></td>
            </tr>
           </tbody>
